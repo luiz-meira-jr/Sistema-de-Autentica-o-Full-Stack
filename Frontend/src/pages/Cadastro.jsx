@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import './css/cadastro.css';
+
 
 function Cadastro() {
 
     const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmar, setConfirmar] = useState('');
+    const navigate = useNavigate();
 
     async function cadastrar(e) {
 
@@ -30,37 +34,45 @@ function Cadastro() {
         const dados = await response.json();
 
         alert(dados.mensagem);
+
+        if(dados.sucesso){
+            navigate("/login");
+        }
     }
 
     return (
-        <form onSubmit={cadastrar}>
+        <div className='cadastro'>
+            <h1>Cadastrar</h1>
+            <form onSubmit={cadastrar}>
 
-            <input
-                type="text"
-                placeholder="Usuário"
-                value={usuario}
-                onChange={(e) => setUsuario(e.target.value)}
-            />
+                <input
+                    type="text"
+                    placeholder="Usuário"
+                    value={usuario}
+                    onChange={(e) => setUsuario(e.target.value)}
+                />
 
-            <input
-                type="password"
-                placeholder="Senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-            />
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                />
 
-            <input
-                type="password"
-                placeholder="Confirmar senha"
-                value={confirmar}
-                onChange={(e) => setConfirmar(e.target.value)}
-            />
+                <input
+                    type="password"
+                    placeholder="Confirmar senha"
+                    value={confirmar}
+                    onChange={(e) => setConfirmar(e.target.value)}
+                />
 
-            <button type="submit">
-                Cadastrar
-            </button>
+                <button type="submit">
+                    Cadastrar
+                </button>
 
-        </form>
+            </form>
+        </div>
+        
     );
 }
 

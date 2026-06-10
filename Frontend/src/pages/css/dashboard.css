@@ -1,0 +1,20 @@
+.dashboard{
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 40px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.dashboard h1{
+    font-size: 40px;
+
+    color: #222;
+}

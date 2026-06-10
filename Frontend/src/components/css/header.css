@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    line-height: 50px;
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    padding: 0 40px;
+}
+
+.logo{
+    color: white;
+    text-decoration: none;
+}
+
+.link{
+    margin: 0 40px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
