@@ -4,13 +4,16 @@ function Cadastro() {
 
     const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmar, setConfirmar] = useState('');
 
     async function cadastrar(e) {
 
         e.preventDefault();
 
+       // console.log("Botão clicado");
+
         const response = await fetch(
-            'http://localhost:8080/sistema de autenticação full stack/backend/auth/salvar.php',
+            'http://localhost:8080/sistema-autenticacao-fullstack/Backend/auth/salvar.php',
             {
                 method: 'POST',
                 headers: {
@@ -18,7 +21,8 @@ function Cadastro() {
                 },
                 body: JSON.stringify({
                     usuario,
-                    senha
+                    senha,
+                    confirmar
                 })
             }
         );
@@ -43,6 +47,13 @@ function Cadastro() {
                 placeholder="Senha"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
+            />
+
+            <input
+                type="password"
+                placeholder="Confirmar senha"
+                value={confirmar}
+                onChange={(e) => setConfirmar(e.target.value)}
             />
 
             <button type="submit">
